@@ -26,8 +26,6 @@ SELECT
     p.payment_installments,
     p.payment_value,
     pr.product_category_name,
-    -- Calculate shipping time using a macro
-    --, {{ calculate_shipping_time('o.order_approved_at', 'o.order_delivered_customer_date') }} AS actual_shipping_time
 FROM
     {{ ref('stg_order_items') }} oi
 LEFT JOIN

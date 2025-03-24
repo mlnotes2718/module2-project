@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: ecomm_raw
+    database: sctp-data-eng-ecomm
+    tables:
+      - name: clean_olist_order_item
+      - name: clean_olist_customer
+      - name: clean_olist_order_payments
+      - name: clean_olist_orders_dataset
+      - name: clean_olist_products_dataset

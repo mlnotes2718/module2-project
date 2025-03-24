@@ -1,0 +1,140 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: Staged customer data from the raw source.
+    columns:
+      - name: customer_id
+        description: Unique identifier for a customer.
+        tests:
+          - unique
+          - not_null
+      - name: customer_unique_id
+        description: Unique identifier for a customer across all orders.
+        tests:
+          - not_null
+      - name: customer_zip_code_prefix
+        description: First 5 digits of the customer's zip code.
+      - name: customer_city
+        description: Customer's city.
+      - name: customer_state
+        description: Customer's state.
+
+  - name: stg_orders
+    description: Staged order data from the raw source.
+    columns:
+      - name: order_id
+        description: Unique identifier for an order.
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: Foreign key to the customers table.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_id
+      - name: order_status
+        description: Status of the order.
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["delivered", "shipped", "canceled", "unavailable", "invoiced", "processing", "created", "approved"]
+      - name: order_purchase_timestamp
+        description: Timestamp when the order was purchased.
+        tests:
+          - not_null
+      - name: order_approved_at
+        description: Timestamp when the order was approved.
+      - name: order_delivered_carrier_date
+        description: Timestamp when the order was delivered to the carrier.
+      - name: order_delivered_customer_date
+        description: Timestamp when the order was delivered to the customer.
+      - name: order_estimated_delivery_date
+        description: Timestamp of the estimated delivery date.
+
+  - name: stg_order_items
+    description: Staged order item data from the raw source.
+    columns:
+      - name: order_id
+        description: Foreign key to the orders table.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_orders')
+              field: order_id
+      - name: order_item_id
+        description: Unique identifier for an item within an order.
+        tests:
+          - not_null
+      - name: product_id
+        description: Foreign key to the products table.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_products')
+              field: product_id
+      - name: price
+        description: Price of the item.
+        tests:
+          - not_null
+          - positive
+      - name: freight_value
+        description: Freight value of the item.
+        tests:
+          - not_null
+          - positive
+
+  - name: stg_products
+    description: Staged product data from the raw source.
+    columns:
+      - name: product_id
+        description: Unique identifier for a product.
+        tests:
+          - unique
+          - not_null
+      - name: product_category_name
+        description: Name of the product category.
+      - name: product_weight_g
+        description: Weight of the product in grams.
+      - name: product_length_cm
+        description: Length of the product in centimeters.
+      - name: product_height_cm
+        description: Height of the product in centimeters.
+      - name: product_width_cm
+        description: Width of the product in centimeters.
+
+  
+
+  - name: stg_payments
+    description: Staged payment data from the raw source.
+    columns:
+      - name: order_id
+        description: Foreign key to the orders table.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_orders')
+              field: order_id
+      - name: payment_sequential
+        description: Sequential number of the payment.
+        tests:
+          - not_null
+      - name: payment_type
+        description: Type of payment.
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["credit_card", "boleto", "voucher", "debit_card", "not_defined"]
+      - name: payment_installments
+        description: Number of installments for the payment.
+        tests:
+          - not_null
+          - positive
+      - name: payment_value
+        description: Value of the payment.
+        tests:
+          - not_null
+          - positive
+

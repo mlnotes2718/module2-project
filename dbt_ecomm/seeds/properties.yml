@@ -1,0 +1,10 @@
+version: 2
+
+seeds:
+  - name: clean_olist_products
+    config:
+      column_types:
+        product_weight_g: float
+        product_length_cm: float
+        product_height_cm: float
+        product_width_cm: float

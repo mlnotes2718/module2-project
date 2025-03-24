@@ -4,7 +4,6 @@ import os
 
 current_path = os.getcwd()
 products_file = os.path.join(current_path, 'dataset', 'olist_products_dataset.csv')
-
 products_df = pd.read_csv(products_file)
 
 # dropping these columns (product_name_lenght, product_description_lenght and product_photos_qty) as they aren't needed for analysis
@@ -14,8 +13,11 @@ products_df = products_df.drop(['product_name_lenght', 'product_description_leng
 # drop all rows with any null values
 products_df = products_df.dropna()
 
-name_file = os.path.join(current_path, 'dataset', 'product_category_name_translation.csv')
+# reset index
+products_df.reset_index(drop=True, inplace=True)
 
+# read 'product_category_name_translation.csv'
+name_file = os.path.join(current_path, 'dataset', 'product_category_name_translation.csv')
 name_df = pd.read_csv(name_file)
 
 # merge both dataframes so that the correct translated names are on the same rows as the product_category_name

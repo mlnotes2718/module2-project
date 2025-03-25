@@ -17,7 +17,7 @@ models:
         description: First 5 digits of the customer's zip code.
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:  # dbt_expectations test
-              column_type: INTEGER
+              column_type: int64
       - name: customer_city
         description: Customer's city.
         tests:
@@ -134,28 +134,28 @@ models:
           - not_null
           - positive
           - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: FLOAT
+              column_type: float64
       - name: product_length_cm
         description: Length of the product in centimeters.
         tests:
           - not_null
           - positive
           - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: FLOAT
+              column_type: float64
       - name: product_height_cm
         description: Height of the product in centimeters.
         tests:
           - not_null
           - positive
           - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: FLOAT
+              column_type: float64
       - name: product_width_cm
         description: Width of the product in centimeters.
         tests:
           - not_null
           - positive
           - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: FLOAT
+              column_type: float64
 
   - name: stg_payments
     description: Staged payment data from the raw source.
@@ -172,7 +172,7 @@ models:
         tests:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: INTEGER
+              column_type: int64
       - name: payment_type
         description: Type of payment.
         tests:
@@ -185,7 +185,7 @@ models:
           - not_null
           - positive
           - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: INTEGER
+              column_type: int64
       - name: payment_value
         description: Value of the payment.
         tests:

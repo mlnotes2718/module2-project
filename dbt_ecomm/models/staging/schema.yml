@@ -55,28 +55,28 @@ models:
         tests:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:  # dbt_expectations test
-              column_type: TIMESTAMP
+              column_type: DATETIME
       - name: order_approved_at
         description: Timestamp when the order was approved.
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:  # dbt_expectations test
-              column_type: TIMESTAMP
+              column_type: DATETIME
       - name: order_delivered_carrier_date
         description: Timestamp when the order was delivered to the carrier.
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type:  # dbt_expectations test
-              column_type: TIMESTAMP
+              column_type: DATETIME
       - name: order_delivered_customer_date
         description: Timestamp when the order was delivered to the customer.
         tests:
           - dbt_expectations.expect_column_values_to_be_of_type: # dbt_expectations test
-              column_type: TIMESTAMP
+              column_type: DATETIME
       - name: order_estimated_delivery_date
         description: Timestamp of the estimated delivery date.
         tests:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: TIMESTAMP
+              column_type: DATETIME
           - dbt_utils.expression_is_true:  # dbt_utils test
               expression: "order_estimated_delivery_date >= order_purchase_timestamp"
 
@@ -134,28 +134,28 @@ models:
           - not_null
           - positive
           - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: INTEGER
+              column_type: FLOAT
       - name: product_length_cm
         description: Length of the product in centimeters.
         tests:
           - not_null
           - positive
           - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: INTEGER
+              column_type: FLOAT
       - name: product_height_cm
         description: Height of the product in centimeters.
         tests:
           - not_null
           - positive
           - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: INTEGER
+              column_type: FLOAT
       - name: product_width_cm
         description: Width of the product in centimeters.
         tests:
           - not_null
           - positive
           - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: INTEGER
+              column_type: FLOAT
 
   - name: stg_payments
     description: Staged payment data from the raw source.

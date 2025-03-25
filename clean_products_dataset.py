@@ -13,9 +13,6 @@ products_df = products_df.drop(['product_name_lenght', 'product_description_leng
 # drop all rows with any null values
 products_df = products_df.dropna()
 
-# reset index
-products_df.reset_index(drop=True, inplace=True)
-
 # read 'product_category_name_translation.csv'
 name_file = os.path.join(current_path, 'dataset', 'product_category_name_translation.csv')
 name_df = pd.read_csv(name_file)

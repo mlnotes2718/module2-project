@@ -8,6 +8,7 @@ import yaml
 # Local application/library specific imports
 from src.kaggle_download import load_kaggle_dataset
 from src.clean_olist_customer import clean_customers_files
+from src.clean_olist_order_items import clean_order_items
 from src.clean_olist_products_dataset import clean_products_dataset
 
 logging.basicConfig(level=logging.INFO)
@@ -37,9 +38,11 @@ def main():
     # Initialize and run data preparation
     logging.info("Data Cleaning")
     clean_customers_files(source_folder, seed_destination)
+    clean_order_items(source_folder, seed_destination)
     clean_products_dataset(source_folder, seed_destination)
 
     logging.info("End of Python script.")
+    logging.info("End of data download and data cleaning")
 
 
 if __name__ == "__main__":

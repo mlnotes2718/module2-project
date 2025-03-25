@@ -1,8 +1,9 @@
 echo '!!! Starting e-commerce ELT Process !!!'
 
-echo '!!! Starting data cleaning'
+echo '!!! Starting data download and data cleaning'
 python main.py
 
+echo '!!! Starting dbt transformation and validation process'
 cd dbt_ecomm
 
 echo '!!! Running dbt seed'

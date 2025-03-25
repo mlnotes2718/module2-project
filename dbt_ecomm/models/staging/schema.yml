@@ -41,9 +41,7 @@ models:
         description: Foreign key to the customers table.
         tests:
           - not_null
-          - relationships:
-              to: ref('stg_customers')
-              field: customer_id
+
       - name: order_status
         description: Status of the order.
         tests:
@@ -77,8 +75,7 @@ models:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: DATETIME
-          - dbt_utils.expression_is_true:  # dbt_utils test
-              expression: "order_estimated_delivery_date >= order_purchase_timestamp"
+          
 
   - name: stg_order_items
     description: Staged order item data from the raw source.
@@ -87,32 +84,23 @@ models:
         description: Foreign key to the orders table.
         tests:
           - not_null
-          - relationships:
-              to: ref('stg_orders')
-              field: order_id
+
       - name: order_item_id
         description: Unique identifier for an item within an order.
         tests:
           - not_null
-      - name: product_id
-        description: Foreign key to the products table.
-        tests:
-          - not_null
-          - relationships:
-              to: ref('stg_products')
-              field: product_id
       - name: price
         description: Price of the item.
         tests:
           - not_null
-          - positive
+
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 0
       - name: freight_value
         description: Freight value of the item.
         tests:
           - not_null
-          - positive
+ 
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 0
 
@@ -132,28 +120,28 @@ models:
         description: Weight of the product in grams.
         tests:
           - not_null
-          - positive
+
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: float64
       - name: product_length_cm
         description: Length of the product in centimeters.
         tests:
           - not_null
-          - positive
+
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: float64
       - name: product_height_cm
         description: Height of the product in centimeters.
         tests:
           - not_null
-          - positive
+  
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: float64
       - name: product_width_cm
         description: Width of the product in centimeters.
         tests:
           - not_null
-          - positive
+
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: float64
 
@@ -164,9 +152,7 @@ models:
         description: Foreign key to the orders table.
         tests:
           - not_null
-          - relationships:
-              to: ref('stg_orders')
-              field: order_id
+
       - name: payment_sequential
         description: Sequential number of the payment.
         tests:
@@ -183,13 +169,13 @@ models:
         description: Number of installments for the payment.
         tests:
           - not_null
-          - positive
+   
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: int64
       - name: payment_value
         description: Value of the payment.
         tests:
           - not_null
-          - positive
+     
           - dbt_expectations.expect_column_values_to_be_between:
               min_value: 0

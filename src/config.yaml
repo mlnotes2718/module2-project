@@ -1,0 +1,12 @@
+### Configuration Guide 
+
+## Setting Source of Kaggle
+## https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
+kaggle_source : olistbr/brazilian-ecommerce
+
+## Setting Source Folder and Filenames
+source_folder : 'dataset'
+
+## Data Cleaning Source Folder and Seed Folder
+seed_folder_path : './tt_seed_test_folder/seeds/'
+#seed_folder_path : './dbt_ecomm/seeds/'

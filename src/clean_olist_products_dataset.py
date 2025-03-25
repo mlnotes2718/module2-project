@@ -26,11 +26,9 @@ def clean_products_dataset(source_folder, seed_folder):
     # merge both dataframes so that the correct translated names are on the same rows as the product_category_name
     df_merged = products_df.merge(name_df, on='product_category_name', how='left')
 
-    # fix the rows where 'product_category_name_english' is null and 'product_category_name' is 'pc_gamer'
-    df_merged.loc[df_merged['product_category_name']=='pc_gamer', 'product_category_name_english'] = 'pc_gamer'
-
-    # fix the remaining rows where 'product_category_name_english' is null and 'product_category_name' is 'portateis_cozinha_e_preparadores_de_alimentos'
-    df_merged.fillna(value='portable_kitchen_and_food_preparators', inplace=True)
+    # fix the rows where 'product_category_name_english' is null and 'product_category_name' isn't
+    # some portuguese words will end up in the column, but we'll let the analyst look into those and fix it there
+    df_merged['product_category_name_english'] = df_merged['product_category_name_english'].fillna(df_merged['product_category_name'])
 
     # replace 'product_category_name" with its english counterpart
     df_merged['product_category_name'] = df_merged['product_category_name_english']
@@ -38,8 +36,14 @@ def clean_products_dataset(source_folder, seed_folder):
     # drop 'product_category_name_english' as it's now redundant
     df_merged = df_merged.drop('product_category_name_english', axis=1)
 
+    # drop duplicate product_id
+    df_merged.drop_duplicates(subset=['product_id'], inplace=True)
+
     # set product_id as the index
     df_merged.set_index('product_id', inplace=True)
+
+    # drop duplicates
+    df_merged.drop_duplicates(keep='first', inplace=True)
 
     # Setting seed path
     seed_path = os.path.join(current_path, seed_folder,cleaned_file_name)

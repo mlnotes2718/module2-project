@@ -33,6 +33,17 @@ dbt_ecomm:
       project: sctp-data-eng-ecomm
       threads: 3
       type: bigquery
+    seed:
+      dataset: ecomm_seed
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      keyfile: ../.keys/sctp-data-eng-ecomm-5e533c859ea1.json
+      location: US
+      method: service-account
+      priority: interactive
+      project: sctp-data-eng-ecomm
+      threads: 3
+      type: bigquery
   target: dev
 
 

@@ -1,11 +1,14 @@
 import pandas as pd
+import logging
 import os
 
-def clean_products_dataset(source_folder, seed_folder):
+logging.basicConfig(level=logging.INFO)
+
+def clean_products_dataset(source_folder, source_file_name, seed_folder, cleaned_file_name):
 
     # Setting source and cleaned file name
-    source_file_name = 'olist_products_dataset.csv'
-    cleaned_file_name = 'clean_olist_products.csv'
+    #source_file_name = 'olist_products_dataset.csv'
+    #cleaned_file_name = 'clean_olist_products.csv'
     
     # Setting source path
     current_path = os.getcwd()
@@ -20,7 +23,7 @@ def clean_products_dataset(source_folder, seed_folder):
     products_df = products_df.dropna()
 
     # read 'product_category_name_translation.csv'
-    name_file = os.path.join(current_path, 'dataset', 'product_category_name_translation.csv')
+    name_file = os.path.join(current_path, source_folder, 'product_category_name_translation.csv')
     name_df = pd.read_csv(name_file)
 
     # merge both dataframes so that the correct translated names are on the same rows as the product_category_name

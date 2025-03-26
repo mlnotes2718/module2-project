@@ -5,8 +5,20 @@
 kaggle_source : olistbr/brazilian-ecommerce
 
 ## Setting Source Folder and Filenames
-source_folder : 'dataset'
+source_folder : 'data'
+customers_file : 'olist_customers_dataset.csv'
+order_items_file : 'olist_order_items_dataset.csv'
+orders_dataset_file : 'olist_orders_dataset.csv'
+order_payments_file : 'olist_order_payments_dataset.csv'
+products_file : 'olist_products_dataset.csv'
+
+
 
 ## Data Cleaning Source Folder and Seed Folder
-seed_folder_path : './tt_seed_test_folder/seeds/'
-#seed_folder_path : './dbt_ecomm/seeds/'
+#seed_folder_path : './tt_seed_test_folder/seeds/'
+seed_folder_path : './dbt_ecomm/seeds/'
+cleaned_customers_file : 'clean_olist_customers.csv'
+cleaned_order_items_file : 'clean_olist_order_items.csv'
+cleaned_orders_dataset_file : 'clean_olist_orders.csv'
+cleaned_order_payments_file : 'clean_olist_order_payments.csv'
+cleaned_products_file : 'clean_olist_products.csv'

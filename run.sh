@@ -13,7 +13,7 @@ echo '!!! Checking dependencies'
 dbt deps
 
 echo '!!! Running dbt seed'
-dbt seed --target seed
+dbt seed --target raw
 
 echo '!!! Running dbt run'
 dbt run

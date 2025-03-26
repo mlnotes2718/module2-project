@@ -1,0 +1,52 @@
+name: Run ELT Process on Schedule
+
+on:
+  # push:
+  #   branches:
+  #     - main  # Adjust if you want to trigger on different branches
+  workflow_dispatch:  # Enables manual triggering from GitHub UI
+  schedule:
+    - cron: '0 0 * * 0'  # Runs every day at midnight UTC
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'  # Adjust as needed
+      
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+
+      - name: Run Script and Capture Logs
+        run: ./run.sh 2>&1 | tee workflow.log
+      
+      - name: Read Log File into Environment Variable
+        run: echo "LOG_CONTENT<<EOF" >> $GITHUB_ENV && cat workflow.log >> $GITHUB_ENV && echo "EOF" >> $GITHUB_ENV
+      
+      # - name: Send Email Notification with Logs
+      #   if: always()
+      #   uses: dawidd6/action-send-mail@v3
+      #   with:
+      #     server_address: smtp.gmail.com
+      #     server_port: 587
+      #     username: ${{ secrets.MAIL_USERNAME }}
+      #     password: ${{ secrets.MAIL_PASSWORD }}
+      #     subject: "GitHub Actions Workflow Run - ${{ job.status }}"
+      #     body: |
+      #       Job Status: ${{ job.status }}
+            
+      #       Logs:
+      #       ${{ env.LOG_CONTENT }}
+            
+      #       Check full logs here: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      #     to: "${{ secrets.COLLABORATORS_EMAILS }}"
+      #     from: "GitHub Actions <no-reply@example.com>"

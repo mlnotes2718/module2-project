@@ -1,0 +1,10 @@
+db-dtypes==1.4.2
+dbt-bigquery==1.9.1
+dbt-core==1.9.3
+ipykernel==6.29.5
+kaggle==1.6.17
+matplotlib==3.10.0
+pandas==2.2.3
+pip==25.0.1
+PyYAML==6.0.2
+seaborn==0.13.2

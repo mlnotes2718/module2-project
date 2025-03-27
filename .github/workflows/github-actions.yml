@@ -49,4 +49,5 @@ jobs:
             
             Check full logs here: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           to: "mathavan@aout.io,ai.thomas.tay@outlook.com,thaymathu@gmail.com"
-          from: "GitHub Actions <no-reply@example.com>"
+          from: ${{ secrets.GMAIL_EMAIL }}
+          secure: tls

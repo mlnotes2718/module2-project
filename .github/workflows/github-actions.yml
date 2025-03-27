@@ -48,6 +48,6 @@ jobs:
             ${{ env.LOG_CONTENT }}
             
             Check full logs here: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          to: "mathavan@aout.io,ai.thomas.tay@outlook.com,thaymathu@gmail.com"
-          from: ${{ secrets.GMAIL_EMAIL }}
+          to: mathavan@aout.io,ai.thomas.tay@outlook.com,thaymathu@gmail.com
+          from: thaymathu@gmail.com
           secure: tls

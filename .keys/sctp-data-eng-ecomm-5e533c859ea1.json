@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "sctp-data-eng-ecomm",
+  "private_key_id": "5e533c859ea119c11d3b6bee11cd675f684aa12e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCiT7ZVKdZtAKG/\nr1tkSVjEzY4BJD9BUNusDlktLp7ajQBoWlYSq9WUs6mXlpw/rgpFPaHN4ncZPXlE\nTOC08iVV/PY7rRLKdIDxjZRhIO+aBc73VfaJvjbwsgW8a6V5CpiicpYyq24wp5nT\nS9Q0Zggxan3osxM/O1Z4jtEOnnSDOkNSs3CuomgwPtVEIfxn+YOGu3v+0ur+8k7I\nsAi8v1MgKXb60FxwYMj70S4KeBLYdG/eSJQHvCZH5cTVUa7ken2+9gTG+BujvhCF\nOmZzfYvXNeO9lMu4EcoT30PrFjRdhwBoxnV73TdI5QvYV0SK5+/r9gCLbrHbZVR2\n/Dq5qKTHAgMBAAECggEAG0NIXQWp/qUchhXuQ+oN/wCH2ak89rueKkg+slgiVpNY\nfi6uRnSWa2PCGLQzin6xOvAfPXXMi3DH7bD8DWie3NKgiWWIwnjPL8OYKLhfhn9z\nRBgsUPaiQ8ujKwLpyGr/OEoG8HvbBlEghV03R5XbynEYtP1fPj+5Roa2lr4G1AOw\ngHwPuBw0xviVBqWLkH+cDvh6TLtYSNvOxZivuvzSRUs1KzoWKaHqYMqP5FVlZIwd\no69MQsBekrwwU2cA5P6kVK51Un7+NbAtPtqamium8gtNmJMnE3Hx7qsV1H4UDOEb\nED8CAArQh4VOF4hn+Z4zwfjZA1Swmcd29Y8zUhAwAQKBgQDgTjHWZcTLjhW8PQ11\n/MbZJeXgwnPCQ/AmYm2Q6Mu++ctdPHGrefpKV8sLVe2rGpCWHAQU/kn1ZxCBYuxS\nvGfjLPTlYL5Ii5tk8QaBm4hoIpP8UrNj53ONXJtRc3d2eQrV61pHvZF6Z0aFOHu9\n1Czj++sYGr9mlhtvEr4KLMv6/wKBgQC5PwE50MY+DES5yi7kavAkFfAudqi3hDcw\njYcucK7OJa6Z91FDewy6HNbdJkczyiJPt4xPu8HJvH1g2goY5phXJOqQfk/C/EQX\nIudlGsnzYxd+Zadd/K/4+w5C2WPAnUub8mXNBXCPzcM7iQI8P4Ro9PVxdZNLrajD\nOmzd6ow+OQKBgQC+wsGvzK0pUJU7mdCw32Fdm9V86OL5/D1o55y2+MUOjfJeQOGL\nLBmo0DFmWpXeRqFgiEMQd5L+mcB3yWGim4jes4Uy7qvllpV5q2IVJ+lCZuXkWZEn\nDdhACNou0zxuDVMhyx7klFv89YgMFJVoQ+JJoh22SkktPcvnEtF8Zcy0kQKBgCAs\nFxRpc+SW0ODLgnVdNTOvM7V+GjM1HTire8zO+S0IUlifIVfs6Prxw0dJPJh8BJV/\ntTirzS4yNDw74gENG2wXFz3dEhE1KsYx46oliulgTlY/ZV/nYNCHGaT2iGKNbvI4\nmQGQbkorXDrcwqygA2kPEgmQd/JuyJ6PaRTphU3RAoGAeFWCv2gqAUQcJHqWuHOv\n7bvy3x/FxBQXf1fgw4WTz8HHRCyc20QOi1eUeGQFzPIFTkLbXRulSTIq3lfIA6/k\n3AZ022+pE9FQ0Xr9ypndlnRhoKUfSaFP0QsBHue6Utgo11KXy5vLYjXl+KXU/y14\nI5Rc+P5HaX0dyhW2JNn+2+Q=\n-----END PRIVATE KEY-----\n",
+  "client_email": "dbt-user@sctp-data-eng-ecomm.iam.gserviceaccount.com",
+  "client_id": "113107448594544662278",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dbt-user%40sctp-data-eng-ecomm.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

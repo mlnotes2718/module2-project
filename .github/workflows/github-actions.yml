@@ -38,8 +38,8 @@ jobs:
         with:
           server_address: smtp.gmail.com
           server_port: 587
-          username: ${{ secrets.GMAIL_USERNAME}}
-          password: ${{ secrets.GMAIL_APP_PASSWORD}}
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
           subject: "GitHub Actions Workflow Run - ${{ job.status }}"
           body: |
             Job Status: ${{ job.status }}
@@ -48,6 +48,5 @@ jobs:
             ${{ env.LOG_CONTENT }}
             
             Check full logs here: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          to: mathavan@aout.io
-          from: thaymathu@gmail.com
-          secure: tls
+          to: "${{ secrets.COLLABORATORS_EMAILS }}"
+          from: "GitHub Actions <no-reply@example.com>"

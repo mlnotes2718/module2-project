@@ -48,5 +48,5 @@ jobs:
             ${{ env.LOG_CONTENT }}
             
             Check full logs here: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          to: "mathavan@aout.io,ai.thomas.tay@outlook.com"
+          to: "mathavan@aout.io,ai.thomas.tay@outlook.com,thaymathu@gmail.com"
           from: "GitHub Actions <no-reply@example.com>"

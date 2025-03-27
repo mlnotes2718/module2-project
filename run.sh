@@ -1,3 +1,8 @@
+#!/bin/bash
+
+chmod 600 ./.keys/kaggle.json
+chmod 600 ./.keys/sctp-data-eng-ecomm-5e533c859ea1.json
+
 echo '!!! Starting e-commerce ELT Process !!!'
 
 echo '!!! Starting data download and data cleaning'

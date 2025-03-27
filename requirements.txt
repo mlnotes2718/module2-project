@@ -2,7 +2,7 @@ db-dtypes==1.4.2
 dbt-bigquery==1.9.1
 dbt-core==1.9.3
 ipykernel==6.29.5
-jupyterlab=4.3.4
+jupyterlab==4.3.4
 kaggle==1.6.17
 matplotlib==3.10.0
 pandas==2.2.3

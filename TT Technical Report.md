@@ -1,15 +1,22 @@
 # ELT Pipeline Performance and Analysis Report
-Author(s)
+Author(s): 
 Date
 Organization/Project Name
 
 ## Executive Summary
-Brief overview of the ELT process
-
+### Brief overview of the ELT process
+attached charts
 ### Key findings and insights
+- BigQuery is preferred over duckDb contrary to our original design intention
+- BiqQuery provide user friendly tools such as Lookout Studio for non technical user
+- dbt seed is a simpler and better choice compared to Meltano
+- We can have many target database and many source database if we use Bigquery with dbt
 
 
-Summary of challenges and recommendations
+### Summary of challenges and recommendations
+- Difficult to manage Duckdb file locking mechanism. Use Bigquery instead.##
+- Github Action do not guaranteed scheduled job to run on time, need external scheduler to trigger the job if running on time is crucial
+- Managing Github Secrets is a challenge   
 
 
 ## Introduction
@@ -20,12 +27,12 @@ Scope and objectives
 Stakeholders and intended audience
 
 ## ELT Pipeline Architecture
-Overview of the system architecture
+### Overview of the system architecture
 
 Diagram of data flow (from sources to destination)
 ![alt text](assets/elt_flowchart.png)
 
-Technologies used (e.g., AWS Glue, Snowflake, dbt, Apache Airflow)
+### Technologies used (e.g., AWS Glue, Snowflake, dbt, Apache Airflow)
 - BigQuery : Compare Duckdb vs Bigquery
     - Duckdb is cheaper but not scalability
     - Bigquery is readily available 24x7
@@ -67,54 +74,58 @@ Destination databases/data warehouses
 - cleaned data file in csv format in save into dbt seed folder
 - we use dbt seed to transfer the csv file to bigquery
 
-Batch vs. real-time loading strategies
-- depending on the scale 
+### Batch vs. real-time loading strategies
 - for current situation batch processing is good enough
-- real-time load is more process intensive
+- real-time load is more process intensive and costly, need management to determine if real time is required.
 
-Data validation and deduplication techniques
+### Data validation and deduplication techniques
 - data validation and data deduplication is done during data cleaning using python script and pandas 
 
 ## Data Transformation and Processing
-Transformation rules and logic
+### Transformation rules and logic
+- transformation rules and logic are defined in the schema under dbt models
 
-Tools used (SQL, dbt, Python, etc.)
+### Tools used (SQL, dbt, Python, etc.)
 - we use dbt as data transformation tools
 
-Performance optimization techniques
+### Performance optimization techniques
 
 ## Performance Metrics and Monitoring
-Pipeline execution time, success rate, and latency
-- BigQuery is 
+### Pipeline execution time, success rate, and latency
+- Pipleline execution time is less than 5 minutes 
 - Github Actions scheduler is not guarantee to process on time
 - As improvement consider using Google job scheduler to trigger the job
 
-Data quality and integrity checks
+### Data quality and integrity checks
+- data quality and integrity checks are done using dbt test
 
-Resource utilization (CPU, memory, storage)
-- The 
+### Resource utilization (CPU, memory, storage)
+- 
 
 ## Error Handling and Troubleshooting
-Common errors and resolutions
+### Common errors and resolutions
 
-Logging and alerting mechanisms (e.g., AWS CloudWatch, Airflow alerts)
+### Logging and alerting mechanisms (e.g., AWS CloudWatch, Airflow alerts)
 - Github Actions with email notifications
 
-Debugging strategies
+### Debugging strategies
 
 10. Security and Compliance
-Data encryption and access control
+### Data encryption and access control
 - Use service key file as it is a private repo
 
-Compliance with GDPR, HIPAA, or other regulations
+### Compliance with GDPR, HIPAA, or other regulations
 
-Audit logging and governance policies
+### Audit logging and governance policies
 
 ## Challenges and Recommendations
-Identified bottlenecks or inefficiencies
+### Identified bottlenecks or inefficiencies
+- Service key files, although is secured in a private repo it is best to move it to Github Secrets 
+- Github scheduler do not run on time. 
 
 Suggested improvements (e.g., performance tuning, automation)
 - use Github secrets to keep the keys
+- Use external job scheduler to trigger th workflow
 
 Future enhancements
 

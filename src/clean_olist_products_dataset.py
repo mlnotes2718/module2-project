@@ -15,12 +15,17 @@ def clean_products_dataset(source_folder, source_file_name, seed_folder, cleaned
     products_file = os.path.join(current_path, source_folder, source_file_name)
     products_df = pd.read_csv(products_file)
 
+    # drop all rows with null values for all columns except product_photos_qty
+    products_df = products_df.dropna(subset=['product_id', 'product_category_name', 'product_name_lenght', 'product_description_lenght', 
+                                      'product_weight_g', 'product_length_cm', 'product_height_cm', 'product_width_cm'])
+
+    # drop duplicates
+    products_df.drop_duplicates(subset=['product_category_name', 'product_name_lenght', 'product_description_lenght', 'product_weight_g', 
+                                'product_length_cm', 'product_height_cm', 'product_width_cm'], keep='first', inplace=True)
+    
     # dropping these columns (product_name_lenght, product_description_lenght and product_photos_qty) as they aren't needed for analysis
     # original product names will be replaced with the translated version so the lengths would be different anyway
     products_df = products_df.drop(['product_name_lenght', 'product_description_lenght', 'product_photos_qty'], axis=1)
-
-    # drop all rows with any null values
-    products_df = products_df.dropna()
 
     # read 'product_category_name_translation.csv'
     name_file = os.path.join(current_path, source_folder, 'product_category_name_translation.csv')
@@ -44,9 +49,6 @@ def clean_products_dataset(source_folder, source_file_name, seed_folder, cleaned
 
     # set product_id as the index
     df_merged.set_index('product_id', inplace=True)
-
-    # drop duplicates
-    df_merged.drop_duplicates(keep='first', inplace=True)
 
     # Setting seed path
     seed_path = os.path.join(current_path, seed_folder,cleaned_file_name)

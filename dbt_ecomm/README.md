@@ -32,14 +32,15 @@ raw: Raw dataset (ecomm_raw)
     Compile and execute models:
     ```sh
         dbt run
+    
     Test data quality:
     ```sh
         dbt test
 
     Generate documentation:
     ```sh
-    dbt docs generate
-    dbt docs serve
+        dbt docs generate
+        dbt docs serve
 
 ## Key Features
     Materializations:

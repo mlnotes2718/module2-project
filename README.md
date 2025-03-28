@@ -30,12 +30,14 @@ The project uses the following datasets located in the `data/` folder:
    cd module2-project
 
 2. Set up the environment:
+   ```sh
     conda env create -f environment.yml
     conda activate module2-project
 
 3. Add API keys: Place your API keys in the .keys/ folder (e.g., kaggle.json).
 
 4. Run dbt commands:
+   ```sh
     cd dbt_ecomm
     dbt run
     dbt test

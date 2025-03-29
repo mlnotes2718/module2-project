@@ -4,9 +4,9 @@ on:
   # push: # use in production stage
   #   branches:
   #     - main  # Adjust if you want to trigger on different branches
-  workflow_dispatch:  # Enables manual triggering from GitHub UI
-  schedule:
-    - cron: '0 15 * * *'  # Runs every day at 3pm UTC 11pm SG time
+  #workflow_dispatch:  # Enables manual triggering from GitHub UI
+  #schedule:
+  #  - cron: '0 15 * * *'  # Runs every day at 3pm UTC 11pm SG time
 
 jobs:
   run-script:

@@ -1111,3 +1111,29 @@ Check full logs here: https://github.com/sustaincode/module2-project/actions/run
 
 ### 11.4 **References**
 
+#### Kaggle
+- https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce?select=olist_customers_dataset.csv
+- https://drlee.io/unlock-the-power-of-kaggle-how-to-call-datasets-directly-with-python-and-rule-the-data-science-2303cbae4e8a
+
+
+#### BigQuery
+- https://www.rudderstack.com/guides/how-to-access-and-query-your-bigquery-data-using-python-and-r/
+- https://cloud.google.com/iam/docs/keys-create-delete#creating
+
+
+#### dbt
+- https://docs.getdbt.com/docs/core/connect-data-platform/duckdb-setup
+- https://docs.getdbt.com/docs/core/connect-data-platform/bigquery-setup
+- https://docs.getdbt.com/guides/bigquery?step=1
+- https://mbvyn.medium.com/understanding-dbt-seeds-and-sources-c5611be17d32
+- https://docs.getdbt.com/reference/seed-configs
+
+
+#### Github Actions
+- https://docs.github.com/en/actions/writing-workflows/quickstart
+- https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions
+- https://chatgpt.com/share/67e4e54f-b340-8000-8d01-fce47c0f4870
+
+
+#### Slides
+- https://slidesgo.com/

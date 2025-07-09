@@ -14,9 +14,9 @@ jobs:
     
     # Set environment variables for the entire job
     env:
-      DBT_BIGQUERY_SERVICE_ACCOUNT_KEY: ${{ secrets.DBT_BIGQUERY_SERVICE_ACCOUNT_KEY }}
       KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
       KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+      DBT_BIGQUERY_SERVICE_ACCOUNT_KEY: ${{ secrets.DBT_BIGQUERY_SERVICE_ACCOUNT_KEY }} 
     
     steps:
       - name: Checkout Code
@@ -32,6 +32,12 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
+      - name: Write BigQuery Service Account Key to File
+        run: echo "$DBT_BIGQUERY_SERVICE_ACCOUNT_KEY" > /tmp/bq-key.json
+
+      - name: Set GOOGLE_APPLICATION_CREDENTIALS env
+        run: echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/bq-key.json" >> $GITHUB_ENV
+
       - name: Run Script and Capture Logs
         run: ./run.sh 2>&1 | tee workflow.log
       
@@ -42,7 +48,7 @@ jobs:
         if: always()
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtp.office365.com
+          server_address: smtp.gmail.com
           server_port: 587
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}

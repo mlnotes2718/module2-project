@@ -1,6 +1,9 @@
 
 # Module 2 Final Project: E-commerce Data Analysis with dbt
 
+## UPDATE Jul 2025
+> This is project from SCTP DSAI Course. This is post project update. As the repository is public, we move all secret keys to Github Secrets. Test is successful. This will be the final improvement. 
+
 This project is part of the Module 2 Final Project for the NTU Data Science and AI program. The goal of this project is to analyze and transform e-commerce data using dbt (Data Build Tool) to derive meaningful insights.
 
 ## Project Structure

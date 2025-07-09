@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: ecomm_raw
-    database: sctp-data-eng-ecomm
+    database: sctp-dsai-data-eng-elt-project
     tables:
       - name: clean_olist_order_items
       - name: clean_olist_customers

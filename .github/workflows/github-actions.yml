@@ -1,12 +1,12 @@
 name: Run ELT Process on Schedule
 
 on:
-  push: # use in production stage
-    branches:
-      - main  # Adjust if you want to trigger on different branches
+  #push: # use in production stage
+  #  branches:
+  #    - main  # Adjust if you want to trigger on different branches
   workflow_dispatch:  # Enables manual triggering from GitHub UI
-  schedule:
-    - cron: '0 15 * * 2'  # Runs every Tuesday at 3pm UTC (11pm SG time)
+  #schedule:
+  #  - cron: '0 15 * * 2'  # Runs every Tuesday at 3pm UTC (11pm SG time)
 
 jobs:
   run-script:

@@ -4,7 +4,7 @@ dbt_ecomm:
       dataset: ecomm
       job_execution_timeout_seconds: 300
       job_retries: 1
-      keyfile: "{{ env_var('DBT_BIGQUERY_SERVICE_ACCOUNT_KEY') | as_text }}"
+      keyfile: "{{ env_var('DBT_BQ_KEYFILE_PATH') }}"
       location: US
       method: service-account
       priority: interactive
@@ -15,7 +15,7 @@ dbt_ecomm:
       dataset: ecomm_dev
       job_execution_timeout_seconds: 300
       job_retries: 1
-      keyfile: "{{ env_var('DBT_BIGQUERY_SERVICE_ACCOUNT_KEY') | as_text }}"
+      keyfile: "{{ env_var('DBT_BQ_KEYFILE_PATH') }}"
       location: US
       method: service-account
       priority: interactive
@@ -26,7 +26,7 @@ dbt_ecomm:
       dataset: ecomm_raw
       job_execution_timeout_seconds: 300
       job_retries: 1
-      keyfile: "{{ env_var('DBT_BIGQUERY_SERVICE_ACCOUNT_KEY') | as_text }}"
+      keyfile: "{{ env_var('DBT_BQ_KEYFILE_PATH') }}"
       location: US
       method: service-account
       priority: interactive

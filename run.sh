@@ -1,8 +1,5 @@
 #!/bin/bash
-
-chmod 600 ./.keys/kaggle.json
-chmod 600 ./.keys/sctp-data-eng-ecomm-5e533c859ea1.json
-
+# This script is used to run the ELT process for the e-commerce data pipeline.
 echo '!!! Starting e-commerce ELT Process !!!'
 
 echo '!!! Starting data download and data cleaning'

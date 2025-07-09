@@ -6,7 +6,7 @@ on:
       - main  # Adjust if you want to trigger on different branches
   workflow_dispatch:  # Enables manual triggering from GitHub UI
   schedule:
-    - cron: '0 15 * * *'  # Runs every day at 3pm UTC 11pm SG time
+    - cron: '0 15 * * 2'  # Runs every day at 3pm UTC 11pm SG time
 
 jobs:
   run-script:
@@ -36,7 +36,7 @@ jobs:
         if: always()
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtp.gmail.com
+          server_address: smtp.office365.com
           server_port: 587
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
